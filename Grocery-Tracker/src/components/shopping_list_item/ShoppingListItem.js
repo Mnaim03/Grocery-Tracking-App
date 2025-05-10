@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import CategoryBadge from './CategoryBadge';
-import { styles } from '../styles/ShoppingListItemStyle';
+import { styles } from '../../styles/ShoppingListItemStyle';
 const ShoppingListItem = ({ name , quantity , price , category }) => {
     const [isChecked, setIsChecked] = useState(false);
 

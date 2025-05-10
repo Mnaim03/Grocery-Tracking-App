@@ -1,13 +1,20 @@
 import React from 'react';
 import { Text, View, SafeAreaView } from 'react-native';
-import AppNavigator from './src/navigation/BottomTabNavigator';
+import RootStackNavigator from './src/navigation/RootStackNavigator';
+import { NavigationContainer } from '@react-navigation/native';
+import {GestureHandlerRootView} from "react-native-gesture-handler";
+
 
 
 function App() {
   return (
-    <View style={{flex:1}}>
-          <AppNavigator/> {/*Bottom Tab Navigator che ha tutti i riferimenti agli screen, si deve sempre vedere , in ogni screen*/}
-    </View>
+    <GestureHandlerRootView style={{flex:1}}>
+    <NavigationContainer>
+
+          <RootStackNavigator></RootStackNavigator>
+  
+    </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 

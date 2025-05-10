@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
     return (
-        <NavigationContainer>
+     
             <Tab.Navigator
                 screenOptions={{
                     tabBarActiveTintColor: '#007AFF',
@@ -46,7 +46,7 @@ const AppNavigator = () => {
                
                 
             </Tab.Navigator>
-        </NavigationContainer>
+        
     );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import {styles} from '../styles/CategoryBadgeStyle';
+import {styles} from '../../styles/CategoryBadgeStyle';
 
 const categoryColors = {
     Fruits: '#f39c12',
