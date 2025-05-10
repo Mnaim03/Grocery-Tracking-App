@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
@@ -8,15 +9,18 @@ import RecentScreen from "../screens/RecentScreen";
 const Stack = createNativeStackNavigator(); 
 
 
-const AppNavigator = () =>{
-    <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Recent" component={RecentScreen} />
-            <Stack.Screen name="Lists" component={ListsScreen} />
-            <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Navigator>
-    </NavigationContainer>
+function AppNavigator() {
+    return(
+        <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{ headerShown: false }}
+        >
+                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Recent" component={RecentScreen} />
+                <Stack.Screen name="Lists" component={ListsScreen} />
+            </Stack.Navigator>
+);
 }
 
 
-export default AppNavigator; 
+export default AppNavigator;
