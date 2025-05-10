@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
     container: {
@@ -30,13 +31,21 @@ const styles = StyleSheet.create({
 });
 
 function MenuBar() {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Recent</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Recent')}>
+                <Text style={styles.text}>Recent</Text>
+            </TouchableOpacity>
             <View style={styles.separator} />
-            <Text style={styles.text}>Lists</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Lists')}>
+                <Text style={styles.text}>Lists</Text>
+            </TouchableOpacity>
             <View style={styles.separator} />
-            <Text style={styles.text}>Add-List</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                <Text style={styles.text}>Add-List</Text>
+            </TouchableOpacity>
         </View>
     );
 }

@@ -1,11 +1,10 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 export default function HomeScreen() {
     return (
         <View>
-            <Text>Grocery Tracker</Text>
-            <Text>Get on track with your Grocery</Text>
+            <Text>Home Screen</Text>
         </View>
     );
 }

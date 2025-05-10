@@ -7,8 +7,6 @@ const styles = StyleSheet.create({
 
     subcontainer: {
         flex: 9,
-        alignItems: 'center',
-        justifyContent: 'center',
     },
 
     submenu: {
