@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
 
-export default function App() {
+import MenuBar from './src/components/searchBar';
+import styles from './styles/main';
+
+function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <View style={styles.subcontainer}>
+          <Text style={styles.title}>Grocery Tracker</Text>
+          <Text>Get on track with your Grocery</Text>
+      </View>
+
+      <View style={styles.submenu}>
+        <MenuBar/>
+      </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
