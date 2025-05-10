@@ -18,16 +18,17 @@ const ListStackNavigator = () => {
 
 function ListsScreen({navigation,route}) {
     
-  const lists = route?.params?.items || [];
-    return (
+  const lists = route?.params?.lists || [];
+
+  /* const itemAggiornato = route?.params?.itemAggiornato || []; */
+    return ( 
         <SafeAreaView>
             <FlatList
           data={lists}
           keyExtractor={(item) => list.id}
           renderItem={({ item }) => (
             <Pressable onPress={()=>{
-              navigation.navigate("SingleListScreen")
-              {/*Si dovrebbero passare tutti gli oggetti della lista. */}
+                navigation.navigate("SingleListScreen", { list: item })
             }}>
 
             <ListItem name={item.name} data={item.data} />
