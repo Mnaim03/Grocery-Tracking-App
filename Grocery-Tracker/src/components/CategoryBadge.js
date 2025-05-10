@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import {styles} from '../styles/CategoryBadgeStyle';
 
 const categoryColors = {
     Fruits: '#f39c12',
@@ -21,19 +22,6 @@ const CategoryBadge = ({ category }) => {
     );
 };
 
-const styles = StyleSheet.create({
-    badge: {
-        paddingHorizontal: 10,
-        paddingVertical: 4,
-        borderRadius: 12,
-        alignSelf: 'flex-start',
-        marginTop: 6,
-    },
-    text: {
-        color: 'white',
-        fontSize: 12,
-        fontWeight: '600',
-    },
-});
+
 
 export default CategoryBadge;

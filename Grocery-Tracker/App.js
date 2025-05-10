@@ -14,7 +14,7 @@ function App() {
       <View style={styles.subcontainer}>
           <AppNavigator />
       </View>
-
+        
       <View style={styles.submenu}>
         <MenuBar/>
       </View>
