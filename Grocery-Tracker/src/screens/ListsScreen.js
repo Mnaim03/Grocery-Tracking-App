@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View , SafeAreaView } from 'react-native';
+ 
 
 function ListsScreen() {
     return (
-        <View>
-            <Text>List Screen</Text>
-        </View>
+        <SafeAreaView>
+            <Text>ALL LISTS OF GROCERIES HERE</Text>
+        </SafeAreaView>
     );
 }
 

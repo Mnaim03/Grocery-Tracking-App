@@ -1,15 +1,14 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import MenuBar from "../components/searchBar";
+import { Text, View, StyleSheet , SafeAreaView } from 'react-native';
+import ShoppingListItem from '../components/ShoppingListItem';
 
-export default function HomeScreen({ navigation }) {
+
+export default function HomeScreen() {
     return (
-        <View>
-            <Text>Home Screen</Text>
+        <SafeAreaView>
+            <Text>HOME HERE </Text>
+            
 
-            <View>
-                <MenuBar navigation={navigation} />
-            </View>
-        </View>
+        </SafeAreaView>
     );
 }

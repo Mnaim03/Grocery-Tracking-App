@@ -6,6 +6,7 @@ function RecentScreen() {
         <View>
             <Text>Recent Screen</Text>
         </View>
+        
     );
 }
 

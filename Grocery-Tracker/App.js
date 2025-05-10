@@ -1,16 +1,12 @@
 import React from 'react';
 import { Text, View, SafeAreaView } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import AppNavigator from './src/navigation/BottomTabNavigator';
 
-import MenuBar from './src/components/searchBar';
-import AppNavigator from './src/navigation/AppNavigator';
-
-import {NavigationContainer} from "@react-navigation/native";
 
 function App() {
   return (
     <View style={{flex:1}}>
-          <AppNavigator/>
+          <AppNavigator/> {/*Bottom Tab Navigator che ha tutti i riferimenti agli screen, si deve sempre vedere , in ogni screen*/}
     </View>
   );
 }
