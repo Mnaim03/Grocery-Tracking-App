@@ -30,8 +30,7 @@ const styles = StyleSheet.create({
     },
 });
 
-function MenuBar() {
-    const navigation = useNavigation();
+function MenuBar({ navigation }) {
 
     return (
         <View style={styles.container}>
