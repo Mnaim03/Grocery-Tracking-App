@@ -1,41 +1,31 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Alert } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
+import Icon from 'react-native-vector-icons/MaterialIcons'; // Importa l'icona
 
+const SingleList = ({ list, onDelete }) => {
+    const navigation = useNavigation();
 
-//Visualizzazione della singola lista. Una list la modelliamo come segue : 
-//list è un oggetto javascript fatto in questo modo: 
-/*
-list: {
-    id_list: 
-    title:
-    items=[
-        {
-        name:Pane, 
-        quantity: 2, 
-        price: 2
-        category: Other 
+    const goToDetails = () => {
+        navigation.navigate("Details", list); 
+    };
 
-        },
-
-        {
-        ITEM2
-        },
-        
-        {
-            ITEM3
-        },...ecc
-    ]
-}
-*/ 
-const SingleList = ({ list }) => {
-
-    const navigation = useNavigation(); 
-    const goToDetails = ()=>{
-        navigation.navigate("Details",list); 
+    const showAlert=()=>{
+        Alert.alert(`Are you sure you want to delete ${list.title}?`, "This operation is irreversible", [
+            {
+                text:'Cancel',
+                onPress:()=>{return;}
+            },
+            {
+                text:'OK',
+                onPress:()=>{onDelete(list.id)}
+            }
+        ])
     }
 
-  
+    const handleDelete = () => {
+        showAlert(); 
+    };
 
     return (
         <TouchableOpacity 
@@ -55,10 +45,18 @@ const SingleList = ({ list }) => {
                 shadowOpacity: 0.1,
                 shadowRadius: 4,
                 elevation: 2,
+                flexDirection: 'row', // Usa flexDirection per allineare l'icona a destra
+                justifyContent: 'space-between', // Aggiungi spazio tra il titolo e l'icona
+                alignItems: 'center', // Allinea verticalmente il titolo e l'icona
             }}>
-                <Text style={{ fontSize: 16, fontWeight: '600' }}>
+                <Text style={{ fontSize: 16, fontWeight: '600', flex: 1 }}>
                     {list.title}
                 </Text>
+
+                {/* Icona del cestino */}
+                <TouchableOpacity onPress={handleDelete}>
+                    <Icon name="delete" size={24} color="red" />
+                </TouchableOpacity>
             </View>
         </TouchableOpacity>
     );
