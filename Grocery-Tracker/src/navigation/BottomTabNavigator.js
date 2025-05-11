@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import ListsScreen from '../screens/ListsScreen';
 import { Ionicons } from '@expo/vector-icons';
-
+import ListStackNavigator from './MainStackNavigator';
+import SingleListScreen from '../screens/SingleListScreen';
 
 // Import your screens here
 // Example:
@@ -14,9 +15,9 @@ import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
-const AppNavigator = () => {
+const BottomTabNavigator = () => {
     return (
-        <NavigationContainer>
+        
             <Tab.Navigator
                 screenOptions={{
                     tabBarActiveTintColor: '#007AFF',
@@ -42,12 +43,15 @@ const AppNavigator = () => {
                             <Ionicons name="list-outline" size={size} color={color} />
                         ),
                     }}
+
+
                 />
-               
+
                 
             </Tab.Navigator>
-        </NavigationContainer>
+
+        
     );
 };
 
-export default AppNavigator;
+export default BottomTabNavigator;

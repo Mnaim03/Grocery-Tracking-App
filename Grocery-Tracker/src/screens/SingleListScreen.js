@@ -3,59 +3,43 @@ import { Text, View , SafeAreaView, Button , FlatList } from 'react-native';
 import ShoppingListItem from '../components/ShoppingListItem';
  
 
-function SingleListScreen({ navigation , route }) {
-  //SCHERMATA DETTAGLIATA DELLA SINGOLA LISTA
+function SingleListScreen({ navigation,route }) {
+  const items = route.params?.items || []; // fallback a array vuoto se non esiste
+  const length = items.length;
 
-    const list = route?.params?.list || []; // se li ricevi tramite navigazione
-
-    const listItems = list.prodotti ;
-    const data = list.data; 
-    const name = list.name;
-
-    const handleSelect = (item,val) => {
-      item.selected = val ;
-    }
-    const filterSelected = () => items.filter(item => item.selected);
+  if (length !== 0) {
     return (
-      <SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
         <FlatList
-          data={listItems}
-          keyExtractor={(item) => item.name}
+          data={items}
           renderItem={({ item }) => (
-            <Pressable onPress={()=> navigation.navigate("ShoppingListItem",{item})}>
-            <ShoppingListItem 
-            name={item.name}
-            quantity={item.quantity}
-            price={item.price}
-            category={item.category}
-            selected={true}
-            onSelected={(val) => handleSelect(item,val)}>
-            </ShoppingListItem>
-            </Pressable>
-            )}>
-              
-            </FlatList>
-
-        <Button title="Salva modifiche" onPress={() => {
-          const selectedItems = filterSelected();
-
-          navigation.navigate("ListsScreen") ; //da continuare , bisogna aggiornare la lista precedente.
-
-          /* DA PROVARE
-          navigation.navigate({
-            name: "ListsScreen",
-            params: { itemAggiornato : {selectedItems, name, data} },
-            merge: true,
-          });
-          */
-        }} />
-        
-        
-        
-          
-        
+            <View style={{ padding: 10 }}>
+              <ShoppingListItem
+                name={item.name}
+                quantity={item.quantity}
+                price={item.price}
+                category={item.category}
+              />
+            </View>
+          )}
+          keyExtractor={(item, index) => index.toString()}
+        />
+         <Button title="OK" onPress={()=>navigation.goBack()}></Button>
       </SafeAreaView>
     );
   }
-  
-  export default SingleListScreen;
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 18, color: '#666' }}>
+          Non ci sono ancora elementi in questa lista
+        </Text>
+        <Button title="OK" onPress={()=>navigation.goBack()}></Button>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+
+export default SingleListScreen;

@@ -2,38 +2,19 @@ import React from 'react';
 import { Text, View , SafeAreaView ,FlatList} from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SingleListScreen from './SingleListScreen'
+import ListStackNavigator from '../navigation/MainStackNavigator';
+import ListItem from '../components/ListItem';
+import { sampleLists } from './HomeScreen';
 
-const Stack = createNativeStackNavigator();
 
-const ListStackNavigator = () => {
-    return (
-      <Stack.Navigator>
-        <Stack.Screen name="Lists" component={ListsScreen} />
-        <Stack.Screen name="ListItem" component={ListItem} />
-        <Stack.Screen name="ShoppingListItem" component={ShoppingListItem} />
-        <Stack.Screen name="SingleListScreen" component={SingleListScreen} />
-      </Stack.Navigator>
-    );
-  };
-
-function ListsScreen({navigation,route}) {
-    
-  const lists = route?.params?.lists || [];
-
-  /* const itemAggiornato = route?.params?.itemAggiornato || []; */
+function ListsScreen() {
     return ( 
         <SafeAreaView>
             <FlatList
-          data={lists}
-          keyExtractor={(item) => list.id}
+          data={sampleLists}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <Pressable onPress={()=>{
-                navigation.navigate("SingleListScreen", { list: item })
-            }}>
-
-            <ListItem name={item.name} data={item.data} />
-            </Pressable>
-            
+            <ListItem list={item} />
           )}
         />
         </SafeAreaView>

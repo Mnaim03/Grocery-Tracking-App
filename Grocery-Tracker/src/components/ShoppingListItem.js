@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import CategoryBadge from './CategoryBadge';
 import { styles } from '../styles/ShoppingListItemStyle';
-const ShoppingListItem = ({ name , quantity , price , category ,selected , onSelected}) => {
+const ShoppingListItem = ({ name , quantity , price , category }) => {
     const [isChecked, setIsChecked] = useState(false);
     
     return (
@@ -11,8 +11,6 @@ const ShoppingListItem = ({ name , quantity , price , category ,selected , onSel
                 <Pressable 
                     style={[styles.checkbox, isChecked && styles.checked]}
                     onPress={() => {
-                        if(!isChecked) onSelected(true) // Se non è selezionato, lo seleziono
-                        else onSelected(false) // Se è selezionato, lo deseleziono
                         setIsChecked(prevValue=>!prevValue)
                     }
                 }

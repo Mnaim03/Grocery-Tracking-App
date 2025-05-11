@@ -4,6 +4,7 @@ import { listItemStyles } from '../styles/ListItemStyle';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 //Modelliamo list come un oggetto javascript definito in questo modo: 
 /*
@@ -29,8 +30,9 @@ list:{
 }
 
 */
-const ListItem = ({ list , onDelete  }) => {
+const ListItem = ({ list , onDelete }) => {
 
+    const navigation = useNavigation(); //Usato quando al press del list item vogliamo navigare nella schermata in cui ci sono tutti i prodotti della lista selezionata 
 
 
     //Gestione dell'eliminazione di una lista: 
@@ -50,7 +52,7 @@ const ListItem = ({ list , onDelete  }) => {
 
     //Al press sulla singola lista , devo poter vedere tutti gli "ShoppingListItem" della lista cliccata , o in una nuova schermata con un navigator o con popup
     const goToDetails = ()=>{
-
+            navigation.navigate("SingleListScreen",list);
     }
 
 

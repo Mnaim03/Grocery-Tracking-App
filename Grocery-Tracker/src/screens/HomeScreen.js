@@ -7,24 +7,35 @@ import { FlatList } from 'react-native-gesture-handler';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 
-export default function HomeScreen() {
-    
 
-    //Liste di esempio , quando faremo il db le prenderemo da li 
-    const sampleLists = [
+//Liste di esempio , quando faremo il db le prenderemo da li 
+   export const sampleLists = [
         {
             id:1,
             title:'Prima lista',
-            items:[]
+            items:[
+               
+            ]
         },
 
         {
               id:2,
             title:'Seconda Lista', 
-            items:[]
+            items:[
+                {
+                    name:'Verdura',
+                    price:2, 
+                    quantity:2,
+                    category:'Vegetables'
+                    
+                }
+            ]
         }
     
     ]
+
+export default function HomeScreen() {
+    
     
     const [lists , setLists] = useState(sampleLists); 
 
