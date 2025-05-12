@@ -2,12 +2,19 @@ import React , {useState} from 'react';
 import {Text, View, SafeAreaView, Button, FlatList, TextInput, TouchableOpacity, Modal} from 'react-native';
 import ShoppingListItem from '../components/ShoppingListItem';
  import ListItemStyles from '../styles/ListItemStyle';
+ import {sampleLists} from "./HomeScreen";
 
 function SingleListScreen({ navigation,route }) {
   const items = route.params?.items || []; // fallback a array vuoto se non esiste
   const length = items.length;
+  const id = route.params?.id;
 
   const PopUp = () => {
+      const [name,setName] = React.useState('');
+      const [quantity,setQuantity] = React.useState('');
+      const [price,setPrice] = React.useState('');
+      const [category,setCategory] = React.useState('');
+
       return (
           <Modal
           visible={visible}
@@ -27,12 +34,15 @@ function SingleListScreen({ navigation,route }) {
                   </View>
 
                     <View style={{marginTop: 30}}/>
-                  <TextInput style={ListItemStyles.textInput} placeholder={"Name"}></TextInput>
-                  <TextInput style={ListItemStyles.textInput} placeholder={"Quantity"}></TextInput>
-                  <TextInput style={ListItemStyles.textInput} placeholder={"Price"}></TextInput>
-                  <TextInput style={ListItemStyles.textInput} placeholder={"Category"}></TextInput>
+                  <TextInput style={ListItemStyles.textInput} placeholder={"Name"} onChangeText={(val)=>{setName(val)}}></TextInput>
+                  <TextInput style={ListItemStyles.textInput} placeholder={"Quantity"} onChangeText={(val)=>{setQuantity(val)}} keyboardType="numeric"></TextInput>
+                  <TextInput style={ListItemStyles.textInput} placeholder={"Price"} onChangeText={(val)=>{setPrice(val)}} keyboardType="numeric"></TextInput>
+                  <TextInput style={ListItemStyles.textInput} placeholder={"Category"} onChangeText={(val)=>{setCategory(val)}}></TextInput>
 
-                  <Text style={ListItemStyles.addProdBtn} onPress={()=>navigation.goBack()}>Add Product</Text>
+                  <Text style={ListItemStyles.addProdBtn} onPress={()=>{
+                    items.push({name:name,price:price,quantity:quantity,category:category})
+                    setVisible(false);
+                  }}>Add Product</Text>
               </View>
           </TouchableOpacity>
 

@@ -30,7 +30,14 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
                     
                 }
             ]
-        }
+        },
+       {
+           id:3,
+           title:'Prima lista',
+           items:[
+
+           ]
+       },
     
     ]
 
