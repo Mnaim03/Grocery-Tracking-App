@@ -25,18 +25,19 @@ function App() {
     initDB();
   }, []);
 
-
   useEffect(() => {
-  const initDB = async () => {
-    try {
-      await createTable();
-      await insertItem('Mela', 5);  // Inserisci un elemento di prova
-      console.log('Elemento aggiunto');
-    } catch (error) {
-      console.error('Errore durante l\'inizializzazione del DB:', error);
-  }}
-  });
-
+    const initDB = async () => {
+      try {
+        await createTable();
+        await insertItem('Mela', 5);  // Inserisci un elemento di prova
+        console.log('Elemento aggiunto');
+      } catch (error) {
+        console.error('Errore durante l\'inizializzazione del DB:', error);
+      }
+    };
+  
+    initDB(); 
+  }, []);
 
   return (
     <NavigationContainer>
