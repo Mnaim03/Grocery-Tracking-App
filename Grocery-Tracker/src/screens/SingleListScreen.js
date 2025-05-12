@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import {Text, View, SafeAreaView, Button, FlatList, TextInput, TouchableOpacity, Modal} from 'react-native';
+import {Text, View, SafeAreaView, Button, FlatList, TextInput, TouchableOpacity, Modal, Alert} from 'react-native';
 import ShoppingListItem from '../components/ShoppingListItem';
  import ListItemStyles from '../styles/ListItemStyle';
  import {sampleLists} from "./HomeScreen";
@@ -40,8 +40,13 @@ function SingleListScreen({ navigation,route }) {
                   <TextInput style={ListItemStyles.textInput} placeholder={"Category"} onChangeText={(val)=>{setCategory(val)}}></TextInput>
 
                   <Text style={ListItemStyles.addProdBtn} onPress={()=>{
+                    if(name !== "" && price !== "" && quantity !== "" && category!== ""){
                     items.push({name:name,price:price,quantity:quantity,category:category})
                     setVisible(false);
+                    return; 
+                    }
+                    Alert.alert("Error", "Please fill all fields to add a product");
+                    return; 
                   }}>Add Product</Text>
               </View>
           </TouchableOpacity>
