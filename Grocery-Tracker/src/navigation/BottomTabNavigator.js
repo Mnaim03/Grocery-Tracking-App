@@ -7,6 +7,7 @@ import RecentScreen from '../screens/RecentScreen';
 import { Ionicons } from '@expo/vector-icons';
 import ListStackNavigator from './MainStackNavigator';
 import SingleListScreen from '../screens/SingleListScreen';
+import AnalysisScreen from '../screens/AnalysisScreen';
 
 // Import your screens here
 // Example:
@@ -37,7 +38,7 @@ const BottomTabNavigator = () => {
                     }}
                 />
                 <Tab.Screen
-                    name="List"
+                    name="Your Lists"
                     component={ListsScreen}
                     options={{
                         tabBarIcon: ({ color, size }) => (
@@ -46,7 +47,7 @@ const BottomTabNavigator = () => {
                     }}
                 />
                 <Tab.Screen
-                    name="Recent"
+                    name="Recents"
                     component={RecentScreen}
                     options={{
                         tabBarIcon: ({ color, size }) => (
@@ -54,11 +55,16 @@ const BottomTabNavigator = () => {
                         ),
                     }}
                 />
-
-                
+                <Tab.Screen
+                    name="Stats"
+                    component={AnalysisScreen}
+                    options={{
+                        tabBarIcon: ({color, size}) => (
+                            <Ionicons name="stats-chart" size={size} color={color} />
+                        )
+                    }}
+                />
             </Tab.Navigator>
-
-        
     );
 };
 
