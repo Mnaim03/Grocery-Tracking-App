@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import ListsScreen from '../screens/ListsScreen';
+import RecentScreen from '../screens/RecentScreen';
 import { Ionicons } from '@expo/vector-icons';
 import ListStackNavigator from './MainStackNavigator';
 import SingleListScreen from '../screens/SingleListScreen';
@@ -20,8 +21,8 @@ const BottomTabNavigator = () => {
         
             <Tab.Navigator
                 screenOptions={{
-                    tabBarActiveTintColor: '#007AFF',
-                    tabBarInactiveTintColor: 'gray',
+                    tabBarActiveTintColor: '#57cb98',
+                    tabBarInactiveTintColor: 'black',
                     headerShown: false,
                     animation:'shift'
                 }}
@@ -31,20 +32,27 @@ const BottomTabNavigator = () => {
                     component={HomeScreen}
                     options={{
                         tabBarIcon: ({ color, size }) => (
-                            <Ionicons name="home-outline" size={size} color={color} />
+                            <Ionicons name="home" size={size} color={color} />
                         ),
                     }}
                 />
-                <Tab.Screen 
-                    name="List" 
+                <Tab.Screen
+                    name="List"
                     component={ListsScreen}
                     options={{
                         tabBarIcon: ({ color, size }) => (
-                            <Ionicons name="list-outline" size={size} color={color} />
+                            <Ionicons name="receipt" size={size} color={color} />
                         ),
                     }}
-
-
+                />
+                <Tab.Screen
+                    name="Recent"
+                    component={RecentScreen}
+                    options={{
+                        tabBarIcon: ({ color, size }) => (
+                            <Ionicons name="file-tray-full" size={size} color={color} />
+                        ),
+                    }}
                 />
 
                 

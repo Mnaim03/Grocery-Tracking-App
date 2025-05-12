@@ -64,27 +64,50 @@ const ListItem = ({ list , onDelete }) => {
         >
             <View style={{
                 backgroundColor: 'white',
-                padding: 16,
+                padding: 19,
                 marginVertical: 8,
                 marginHorizontal: 16,
                 borderRadius: 12,
                 borderWidth: 1,
                 borderColor: '#ddd',
                 shadowColor: '#000',
-                shadowOffset: { width: 0, height: 1 },
-                shadowOpacity: 0.1,
-                shadowRadius: 4,
+                shadowOffset: { width: 0, height: 0 },
+                shadowOpacity: 0,
+                shadowRadius: 3,
                 elevation: 2,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
             }}>
-                <Text style={{ fontSize: 16, fontWeight: '600', flex: 1 }}>
+                <Text style={{
+                    fontSize: 16,
+                    fontWeight: '500',
+                    flex: 1 }}>
                     {list.title}
                 </Text>
 
+                <TouchableOpacity onPress={goToDetails}>
+                    <View style={{
+                        marginRight: 15,
+                        borderWidth: 1,
+                        padding: 5,
+                        borderRadius: 6,
+                        borderColor: '#33906A',
+                        opacity: 0.8,
+                        backgroundColor: '#33906A',
+                    }}>
+                        <Ionicons name="cart" size={24} color="white" />
+                    </View>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={handleDelete}>
-                    <Ionicons name="trash-outline" size={24} color="red" />
+                    <View style={{
+                        borderWidth: 1,
+                        padding: 5,
+                        borderRadius: 6,
+                        borderColor: '#33906A',
+                    }}>
+                        <Ionicons name="trash" size={24} color="#33906A" />
+                    </View>
                 </TouchableOpacity>
             </View>
         </TouchableOpacity>
