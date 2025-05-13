@@ -44,7 +44,7 @@ const PopUp = ({ visible, setVisible, items }) => {
                 <TextInput style={ListItemStyles.textInput} placeholder={"Name"} onChangeText={(val)=>{setName(val)}}></TextInput>
                 <TextInput style={ListItemStyles.textInput} placeholder={"Quantity"} onChangeText={(val)=>{setQuantity(val)}} keyboardType="numeric"></TextInput>
                 <TextInput style={ListItemStyles.textInput} placeholder={"Price"} onChangeText={(val)=>{setPrice(val)}} keyboardType="numeric"></TextInput>
-                <View style={ListItemStyles.pickerWrapper}>
+                <View>
                   <DropDownPicker
                     open={open}
                     value={category}
@@ -53,7 +53,15 @@ const PopUp = ({ visible, setVisible, items }) => {
                     setValue={setCategory}
                     setItems={setItems}
                     placeholder="Select a category..."
-                    style={ListItemStyles.pickerInput}
+                    style={[
+                      ListItemStyles.pickerInput
+                    ]}
+                    dropDownContainerStyle={{ borderColor: '#32916A' }}
+                    textStyle={{ fontSize: 20, color: '#32916A' }}
+                    placeholderStyle={{ color: 'gray' }}
+                    selectedItemLabelStyle={{ color: '#32916A' }}
+                    selectedItemContainerStyle={{ backgroundColor: '#32916A' }}
+                    selectedItemTextStyle={{ color: 'white' }}
                   />
                 </View>
 
