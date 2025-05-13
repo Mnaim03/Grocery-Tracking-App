@@ -12,14 +12,13 @@ const PopUp = ({ visible, setVisible, items }) => {
     const [category,setCategory] = React.useState('');
     const [open, setOpen] = React.useState(false);
     const [pickerItems, setItems] = React.useState([
-      { label: 'Fruits', value: 'fruits' },
-      { label: 'Vegetables', value: 'vegetables' },
-      { label: 'Meat', value: 'meat' },
-      { label: 'Fish', value: 'fish' },
-      { label: 'Bakery', value: 'bakery' },
-      { label: 'Snacks', value: 'snacks' },
-      { label: 'Beverages', value: 'beverages' },
-      { label: 'Frozen', value: 'frozen' },
+      { label: 'Fruits', value: 'Fruits' },
+      { label: 'Vegetables', value: 'Vegetables' },
+      { label: 'Meat', value: 'Meat' },
+      { label: 'Dairy', value: 'Dairy' },
+      { label: 'Snacks', value: 'Snacks' },
+      { label: 'Beverages', value: 'Beverages' },
+      { label: 'Other', value: 'Other' },
     ]);
 
     return (
