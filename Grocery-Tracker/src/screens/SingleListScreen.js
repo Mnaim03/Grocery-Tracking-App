@@ -40,12 +40,12 @@ function SingleListScreen({ navigation,route }) {
                   <TextInput style={ListItemStyles.textInput} placeholder={"Category"} onChangeText={(val)=>{setCategory(val)}}></TextInput>
 
                   <Text style={ListItemStyles.addProdBtn} onPress={()=>{
-                    if(name !== "" && price !== "" && quantity !== "" && category!== ""){
+                    if (name?.trim() !== "" && price?.trim() !== "" && !isNaN(price) && quantity?.trim() !== "" && !isNaN(quantity) && category?.trim() !== "") {
                     items.push({name:name,price:price,quantity:quantity,category:category})
                     setVisible(false);
                     return; 
                     }
-                    Alert.alert("Error", "Please fill all fields to add a product");
+                    Alert.alert("Error", "Please fill correctly all fields to add a product");
                     return; 
                   }}>Add Product</Text>
               </View>
