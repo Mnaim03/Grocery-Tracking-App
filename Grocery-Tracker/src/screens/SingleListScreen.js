@@ -56,11 +56,11 @@ const PopUp = ({ visible, setVisible, items }) => {
                     style={[
                       ListItemStyles.pickerInput
                     ]}
-                    dropDownContainerStyle={{ borderColor: '#32916A' }}
+                    dropDownContainerStyle={{ borderColor: '#32916A', marginTop: 20 }}
                     textStyle={{ fontSize: 20, color: '#32916A' }}
                     placeholderStyle={{ color: 'gray' }}
-                    selectedItemLabelStyle={{ color: '#32916A' }}
-                    selectedItemContainerStyle={{ backgroundColor: '#32916A' }}
+                    selectedItemLabelStyle={{ color: 'white' }}
+                    selectedItemContainerStyle={{ backgroundColor: '#32916A'}}
                     selectedItemTextStyle={{ color: 'white' }}
                   />
                 </View>
