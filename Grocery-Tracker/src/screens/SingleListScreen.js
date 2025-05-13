@@ -12,14 +12,13 @@ const PopUp = ({ visible, setVisible, items }) => {
     const [category,setCategory] = React.useState('');
     const [open, setOpen] = React.useState(false);
     const [pickerItems, setItems] = React.useState([
-      { label: 'Fruits', value: 'fruits' },
-      { label: 'Vegetables', value: 'vegetables' },
-      { label: 'Meat', value: 'meat' },
-      { label: 'Fish', value: 'fish' },
-      { label: 'Bakery', value: 'bakery' },
-      { label: 'Snacks', value: 'snacks' },
-      { label: 'Beverages', value: 'beverages' },
-      { label: 'Frozen', value: 'frozen' },
+      { label: 'Fruits', value: 'Fruits' },
+      { label: 'Vegetables', value: 'Vegetables' },
+      { label: 'Meat', value: 'Meat' },
+      { label: 'Dairy', value: 'Dairy' },
+      { label: 'Snacks', value: 'Snacks' },
+      { label: 'Beverages', value: 'Beverages' },
+      { label: 'Other', value: 'Other' },
     ]);
 
     return (
@@ -68,6 +67,7 @@ const PopUp = ({ visible, setVisible, items }) => {
                 <Text style={ListItemStyles.addProdBtn} onPress={()=>{
                   if (name?.trim() !== "" && price?.trim() !== "" && !isNaN(price) && quantity?.trim() !== "" && !isNaN(quantity) && category?.trim() !== "") {
                   items.push({name:name,price:price,quantity:quantity,category:category})
+                  console.log(items);
                   setVisible(false);
                   return; 
                   }
@@ -112,7 +112,7 @@ function SingleListScreen({ navigation,route }) {
               <Text style={ListItemStyles.plusText}>+</Text>
             </View>
           </TouchableOpacity>
-          <Button title="OK" onPress={() => navigation.goBack()} />
+          <Button title="ok" onPress={() => navigation.goBack()} />
         </>
       ) : (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
