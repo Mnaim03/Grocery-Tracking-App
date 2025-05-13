@@ -17,7 +17,7 @@ import AnalysisScreen from '../screens/AnalysisScreen';
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabNavigator = () => {
+const BottomTabNavigator = ({ lists, setLists, addList, deleteList, updateListItems }) => {
     return (
         
             <Tab.Navigator
@@ -30,7 +30,16 @@ const BottomTabNavigator = () => {
             >
                 <Tab.Screen 
                     name="Home" 
-                    component={HomeScreen}
+                    children={(props) => (
+                        <HomeScreen
+                            {...props}
+                            lists={lists}
+                            setLists={setLists}
+                            addList={addList}
+                            deleteList={deleteList}
+                            updateListItems={updateListItems}
+                        />
+                    )}
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <Ionicons name="home" size={size} color={color} />
@@ -39,12 +48,13 @@ const BottomTabNavigator = () => {
                 />
                 <Tab.Screen
                     name="Your Lists"
-                    component={ListsScreen}
-                    options={{
-                        tabBarIcon: ({ color, size }) => (
-                            <Ionicons name="receipt" size={size} color={color} />
-                        ),
-                    }}
+                    children={(props) => (
+                        <ListsScreen
+                            {...props}
+                            lists={lists} //Passo lo stato delle liste ricevuto da App , perchè in tutti gli schermi dobbiamo avere consistenza
+                           
+                        />
+                    )}
                 />
                 <Tab.Screen
                     name="Recents"
