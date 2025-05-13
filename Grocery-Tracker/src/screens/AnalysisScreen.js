@@ -74,7 +74,7 @@ const AnalysisScreen = ({ lists }) => {
             />
             <StatBox 
               title="Spesa Totale" 
-              value={`€${lists.reduce((acc, list) => 
+              value={`€${lists.reduce((acc, list) =>  //Dalla lista di liste passa alla singola lista , e poi da ogni singola lista passa agli items di quella lista 
                 acc + list.items.reduce((sum, item) => 
                   sum + (item.price * item.quantity), 0), 0).toFixed(2)}`} 
             />

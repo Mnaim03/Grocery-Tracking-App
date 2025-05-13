@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import CategoryBadge from './CategoryBadge';
 import { styles } from '../styles/ShoppingListItemStyle';
-const ShoppingListItem = ({ name , quantity , price , category }) => {
+
+const ShoppingListItem = ({ name, quantity, price, category }) => {
     const [isChecked, setIsChecked] = useState(false);
     
     return (
@@ -10,12 +11,11 @@ const ShoppingListItem = ({ name , quantity , price , category }) => {
             <View style={styles.titleRow}>
                 <Pressable 
                     style={[styles.checkbox, isChecked && styles.checked]}
-                    onPress={() => {
-                        setIsChecked(prevValue=>!prevValue)
-                    }
-                }
+                    onPress={() => setIsChecked(prevValue => !prevValue)}
                 >
-                    {isChecked && <Text style={styles.checkmark}>✓</Text>} {/* Solo quando è selezionato mi da la spunta , perchè altrimenti il componente nativo non lo prevederebbe di per sè */}
+                    {isChecked && (
+                        <Text style={styles.checkmark}>✓</Text>
+                    )}
                 </Pressable>
                 <View style={styles.contentContainer}>
                     <Text style={styles.title}>{name}</Text>
@@ -29,7 +29,5 @@ const ShoppingListItem = ({ name , quantity , price , category }) => {
         </View>
     );
 };
-
-
 
 export default ShoppingListItem;
