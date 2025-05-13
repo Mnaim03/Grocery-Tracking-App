@@ -1,0 +1,6 @@
+module Pods_GroceryTraker {
+  umbrella header "Pods-GroceryTraker-umbrella.h"
+
+  export *
+  module * { export * }
+}
