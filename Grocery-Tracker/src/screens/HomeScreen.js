@@ -4,8 +4,7 @@ import ShoppingListItem from '../components/ShoppingListItem';
 import ListItem from '../components/ListItem';
 import { FlatList } from 'react-native-gesture-handler';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-
-
+import { createList , getLists } from '../data/db';
 
 //Liste di esempio , quando faremo il db le prenderemo da li 
    export const sampleLists = [
@@ -43,13 +42,25 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 export default function HomeScreen({lists , setLists , addList , deleteList , updateListItems}) {
     
     
-   
+    
     const [isModalVisible, setModalVisible] = useState(false);
     const [newListTitle, setNewListTitle] = useState('');
 
 
+    const createNewList = () => {
+        if (newListTitle.trim()) {
+            const newList = {
+                id: Date.now(),
+                title: newListTitle.trim(),
+                items: [],
+            };
+            setLists([...lists, newList]); //Aggiorna le liste con la nuova appena creata
+            setNewListTitle('');
+            createList(newListTitle);
+            setModalVisible(false);
+        }
 
-    
+    };
 
     return (
         <GestureHandlerRootView>
@@ -73,18 +84,7 @@ export default function HomeScreen({lists , setLists , addList , deleteList , up
                         <View style={styles.modalButtons}>
                             <TouchableOpacity
                                 style={styles.modalButton}
-                                onPress={() => {
-                                    if (newListTitle.trim()) {
-                                        const newList = {
-                                            id: Date.now(),
-                                            title: newListTitle.trim(),
-                                            items: [],
-                                        };
-                                        setLists([...lists, newList]); //Aggiorna le liste con la nuova appena creata
-                                        setNewListTitle('');
-                                        setModalVisible(false);
-                                    }
-                                }}
+                                onPress={() => createNewList(newListTitle)}
                             >
                                 <Text style={styles.modalButtonText}>Crea</Text>
                             </TouchableOpacity>

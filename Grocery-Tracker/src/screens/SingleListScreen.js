@@ -4,6 +4,7 @@ import ShoppingListItem from '../components/ShoppingListItem';
  import ListItemStyles from '../styles/ListItemStyle';
  import {sampleLists} from "./HomeScreen";
 import DropDownPicker from 'react-native-dropdown-picker';
+import { insertItem } from '../data/db';
 
 const PopUp = ({ visible, setVisible, items }) => {
     const [name,setName] = React.useState('');
@@ -11,7 +12,7 @@ const PopUp = ({ visible, setVisible, items }) => {
     const [price,setPrice] = React.useState('');
     const [category,setCategory] = React.useState('');
     const [open, setOpen] = React.useState(false);
-    const [pickerItems, setItems] = React.useState([
+    const [pickerItems, setPickerItems] = React.useState([
       { label: 'Fruits', value: 'Fruits' },
       { label: 'Vegetables', value: 'Vegetables' },
       { label: 'Meat', value: 'Meat' },
@@ -50,7 +51,7 @@ const PopUp = ({ visible, setVisible, items }) => {
                     items={pickerItems}
                     setOpen={setOpen}
                     setValue={setCategory}
-                    setItems={setItems}
+                    setItems={setPickerItems}
                     placeholder="Select a category..."
                     style={[
                       ListItemStyles.pickerInput
@@ -66,7 +67,8 @@ const PopUp = ({ visible, setVisible, items }) => {
 
                 <Text style={ListItemStyles.addProdBtn} onPress={()=>{
                   if (name?.trim() !== "" && price?.trim() !== "" && !isNaN(price) && quantity?.trim() !== "" && !isNaN(quantity) && category?.trim() !== "") {
-                  items.push({name:name,price:price,quantity:quantity,category:category})
+                    //insertItem(name, quantity, price, category, id);
+                  
                   setVisible(false);
                   return; 
                   }
