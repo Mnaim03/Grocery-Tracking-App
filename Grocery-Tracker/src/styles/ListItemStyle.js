@@ -1,4 +1,3 @@
-
 import { StyleSheet } from "react-native";
 
 
@@ -109,6 +108,19 @@ const listItemStyles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 500,
         marginTop: 20,
+    },
+
+    pickerInput: {
+        marginVertical: 10,
+        paddingVertical: 12,
+        paddingHorizontal: 10,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 8,
+        fontSize: 20,
+        backgroundColor: '#f0f0f0',
+        color: '#333',
+        height: 50,
     },
 });
 

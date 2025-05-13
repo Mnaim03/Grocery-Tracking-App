@@ -3,6 +3,7 @@ import {Text, View, SafeAreaView, Button, FlatList, TextInput, TouchableOpacity,
 import ShoppingListItem from '../components/ShoppingListItem';
  import ListItemStyles from '../styles/ListItemStyle';
  import {sampleLists} from "./HomeScreen";
+ import { Picker } from '@react-native-picker/picker';
 
 function SingleListScreen({ navigation,route }) {
   const items = route.params?.items || []; // fallback a array vuoto se non esiste
@@ -11,7 +12,7 @@ function SingleListScreen({ navigation,route }) {
 
   const PopUp = () => {
       const [name,setName] = React.useState('');
-      const [quantity,setQuantity] = React.useState('');
+      const [quantity,setQuantity] = React.useState();
       const [price,setPrice] = React.useState('');
       const [category,setCategory] = React.useState('');
 
@@ -37,7 +38,21 @@ function SingleListScreen({ navigation,route }) {
                   <TextInput style={ListItemStyles.textInput} placeholder={"Name"} onChangeText={(val)=>{setName(val)}}></TextInput>
                   <TextInput style={ListItemStyles.textInput} placeholder={"Quantity"} onChangeText={(val)=>{setQuantity(val)}} keyboardType="numeric"></TextInput>
                   <TextInput style={ListItemStyles.textInput} placeholder={"Price"} onChangeText={(val)=>{setPrice(val)}} keyboardType="numeric"></TextInput>
-                  <TextInput style={ListItemStyles.textInput} placeholder={"Category"} onChangeText={(val)=>{setCategory(val)}}></TextInput>
+                  <Picker
+                    selectedValue={category}
+                    onValueChange={(val) => setCategory(val)}
+                    style={ListItemStyles.pickerInput}
+                  >
+                    <Picker.Item label="Select a category..." value="" />
+                    <Picker.Item label="Fruits" value="fruits" />
+                    <Picker.Item label="Vegetables" value="vegetables" />
+                    <Picker.Item label="Meat" value="meat" />
+                    <Picker.Item label="Fish" value="fish" />
+                    <Picker.Item label="Bakery" value="bakery" />
+                    <Picker.Item label="Snacks" value="snacks" />
+                    <Picker.Item label="Beverages" value="beverages" />
+                    <Picker.Item label="Frozen" value="frozen" />
+                  </Picker>
 
                   <Text style={ListItemStyles.addProdBtn} onPress={()=>{
                     if (name?.trim() !== "" && price?.trim() !== "" && !isNaN(price) && quantity?.trim() !== "" && !isNaN(quantity) && category?.trim() !== "") {
