@@ -67,7 +67,12 @@ const BottomTabNavigator = ({ lists, setLists, addList, deleteList, updateListIt
                 />
                 <Tab.Screen
                     name="Stats"
-                    component={AnalysisScreen}
+                    children={(props)=>(
+                        <AnalysisScreen
+                        {...props}
+                        lists={lists}
+                        ></AnalysisScreen>
+                    )}
                     options={{
                         tabBarIcon: ({color, size}) => (
                             <Ionicons name="stats-chart" size={size} color={color} />
