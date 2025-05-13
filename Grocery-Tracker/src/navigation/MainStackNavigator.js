@@ -8,10 +8,20 @@ import BottomTabNavigator from "./BottomTabNavigator";
 
 const Stack = createNativeStackNavigator();
 
-const MainStackNavigator = () => {
+const MainStackNavigator = ({lists , setLists , addList , deleteList , updateListItems}) => {
     return (
       <Stack.Navigator screenOptions={{headerShown:false}} >
-        <Stack.Screen name="BottomBarNavigator" component={BottomTabNavigator}></Stack.Screen>
+       <Stack.Screen name="BottomBarNavigator">
+  {() => (
+    <BottomTabNavigator
+      lists={lists}
+      setLists={setLists}
+      addList={addList}
+      deleteList={deleteList}
+      updateListItems={updateListItems}
+    />
+  )}
+</Stack.Screen>
         <Stack.Screen name="SingleListScreen" component={SingleListScreen} />
       </Stack.Navigator>
     );

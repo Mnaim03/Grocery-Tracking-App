@@ -7,13 +7,13 @@ import ListItem from '../components/ListItem';
 import { sampleLists } from './HomeScreen';
 import listItemStyles from '../styles/ListItemStyle';
 
-function ListsScreen() {
+function ListsScreen({lists}) {
     return (
         <SafeAreaView style={listItemStyles.body}>
             <Text style={listItemStyles.title}>Lists</Text>
 
             <FlatList
-                data={sampleLists}
+                data={lists}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
                     <ListItem list={item} />
