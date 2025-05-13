@@ -111,16 +111,15 @@ const listItemStyles = StyleSheet.create({
     },
 
     pickerInput: {
-        marginVertical: 10,
-        paddingVertical: 12,
-        paddingHorizontal: 10,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 8,
-        fontSize: 20,
-        backgroundColor: '#f0f0f0',
-        color: '#333',
+        marginTop: 20,
+        borderWidth: 0.5,
+        borderColor: 'gray',
+        borderRadius: 6,
+        fontSize: 18,
         height: 50,
+        paddingHorizontal: 8,
+        backgroundColor: '#f9f9f9',
+        color: '#333',
     },
 });
 
