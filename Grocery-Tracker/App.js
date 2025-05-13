@@ -8,25 +8,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createTable } from './src/data/db';
 import { useEffect } from 'react';
 import { insertItem } from './src/data/db';
-import { sampleLists } from './src/screens/HomeScreen';
-import { useState } from 'react';
+
+
 function App() {
-  const [lists , setLists] = useState(sampleLists); 
-  const deleteList = (listId) => {
-    setLists(prevLists => prevLists.filter(list => list.id !== listId));
-  };
-  const addList = (newList) => {
-    setLists(prevLists => [...prevLists, newList]);
-  };
-  const updateListItems = (listId, newItems) => {
-    setLists(prevLists => 
-      prevLists.map(list => 
-        list.id === listId 
-          ? {...list, items: newItems}
-          : list
-      )
-    );
-  };
 
   useEffect(() => {
     const initDB = async () => {
@@ -59,13 +43,7 @@ function App() {
     <NavigationContainer>
     <View style={{flex:1}}>
           
-<MainStackNavigator
-  lists={lists}
-  setLists={setLists}
-  addList={addList}
-  deleteList={deleteList}
-  updateListItems={updateListItems}
-></MainStackNavigator>
+<MainStackNavigator></MainStackNavigator>
           
     </View>
     </NavigationContainer>
