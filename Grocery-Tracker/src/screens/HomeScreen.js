@@ -5,6 +5,7 @@ import ListItem from '../components/ListItem';
 import { FlatList } from 'react-native-gesture-handler';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import { createList , getLists } from '../data/db';
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 //Liste di esempio , quando faremo il db le prenderemo da li 
    export const sampleLists = [
@@ -39,10 +40,10 @@ import { createList , getLists } from '../data/db';
     
     ]
 
-export default function HomeScreen({lists , setLists , addList , deleteList , updateListItems}) {
+export default function HomeScreen({ addList , deleteList , updateListItems}) {
     
-    
-    
+    console.log( "✅"+ getLists());
+    const [lists,setLists] = useState(getLists());
     const [isModalVisible, setModalVisible] = useState(false);
     const [newListTitle, setNewListTitle] = useState('');
 
@@ -54,9 +55,10 @@ export default function HomeScreen({lists , setLists , addList , deleteList , up
                 title: newListTitle.trim(),
                 items: [],
             };
-            setLists([...lists, newList]); //Aggiorna le liste con la nuova appena creata
+            setLists(getLists()); //Aggiorna le liste con la nuova appena creata
             setNewListTitle('');
             createList(newListTitle);
+            
             setModalVisible(false);
         }
 

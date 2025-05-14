@@ -120,7 +120,7 @@ export const getLists = async () => {
 
   results.forEach(result => {
     for (let i = 0; i < result.rows.length; i++) {
-      lists.push(result.rows.item(i));
+      lists.push({ id: result.rows.item(i).id , name : result.rows.item(i).name });
     }
   });
 
